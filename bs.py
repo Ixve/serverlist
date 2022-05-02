@@ -18,17 +18,16 @@ while i != 45:
         with open(f'serverlist_{y}', 'a') as z:
             name = r[i]["name"]
             players_current = r[i]["players_current"]
+            maxplayers = r[i]["players_max"]
             gamemode = r[i]["game_mode"]
             country = r[i]["country"]
-            maxplayers = r[i]["players_max"]
             
             z.write(f"Server Name: {name}")
             z.write(f"\nAmount of players: {players_current}")
+            z.write(f"\nMax Players: {maxplayers}\n\n")
             z.write(f"\nGamemode: {gamemode}")
             z.write(f"\nCountry: {country}")
-            z.write(f"\nMax Players: {maxplayers}\n\n")
-            
+
             i = i + 1
         if i == 45:
             z.close()
-            time.sleep(86400)
