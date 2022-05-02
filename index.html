@@ -4,26 +4,6 @@
     <script type="text/javascript">
         // default pyodide files URL (packages.json, pyodide.asm.data etc)
         window.languagePluginUrl = 'https://pyodide-cdn2.iodide.io/v0.15.0/full/';
-      
-        const output = document.getElementById("output")
-        const code = document.getElementById("code")
-
-        function addToOutput(s) {
-            output.value += `>>>${code.value}\n${s}\n`
-            output.scrollTop = output.scrollHeight
-            code.value=''
-        }
-
-        output.value = 'Initializing...\n'
-        // init pyodide
-        languagePluginLoader.then(() => { output.value += 'Ready!\n' })
-
-        function evaluatePython() {
-            pyodide.runPythonAsync(code.value)
-                .then(output => addToOutput(output))
-                .catch((err) => { addToOutput(err) })
-        }
-      
     </script>
     <script src="https://pyodide-cdn2.iodide.io/v0.15.0/full/pyodide.js"></script>
 </head>
