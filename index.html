@@ -51,7 +51,13 @@ def fetch():
   
 def show_result(data):
   output = js.document.getElementById("output")
-  js.output.value = data
+  data1 = js.JSON.stringify(data)
+  js.output.value = data1
+  
+  #div = window.document.createElement('div')
+
+  #window.document.body.prepend(div)
+  #div.innerHTML=window.JSON.stringify(data)
 `
 
 // init environment
