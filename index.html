@@ -49,7 +49,7 @@ def fetch():
   window.fetch('http://services.buildandshoot.com/serverlist.json').then(lambda resp: resp.json()).then(lambda jsoh: show_result(jsoh))
   
 def show_result(data):
-  print(data)
+  console.log(data)
   #div = window.document.createElement('div')
   #insert into body as a first child
   #window.document.body.prepend(div)
