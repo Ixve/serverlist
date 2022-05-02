@@ -52,8 +52,7 @@ def fetch():
 def show_result(data):
   output = js.document.getElementById("output")
   data1 = js.JSON.stringify(data)
-  js.output.value = data1[1]
-  js.output.value = data1[2]
+  print(data1[0]["name"])
 
 `
 
