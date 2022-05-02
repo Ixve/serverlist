@@ -1,8 +1,25 @@
+        const output = document.getElementById("output")
+        const code = document.getElementById("code")
+
+        function addToOutput(s) {
+            output.value += `>>>${code.value}\n${s}\n`
+            output.scrollTop = output.scrollHeight
+            code.value=''
+        }
+
+        output.value = 'Initializing...\n'
+        languagePluginLoader.then(() => { output.value += 'Ready!\n' })
+
+        function evaluatePython() {
+            pyodide.runPythonAsync(code.value)
+                .then(output => addToOutput(output))
+                .catch((err) => { addToOutput(err) })
+        }
+
 <!DOCTYPE html>
 
 <head>
     <script type="text/javascript">
-        // default pyodide files URL (packages.json, pyodide.asm.data etc)
         window.languagePluginUrl = 'https://pyodide-cdn2.iodide.io/v0.15.0/full/';
     </script>
     <script src="https://pyodide-cdn2.iodide.io/v0.15.0/full/pyodide.js"></script>
@@ -13,11 +30,10 @@
     </div>
     <textarea id='output' style='width: 100%;' rows='10' disabled></textarea>
     <textarea id='code' rows='3'>
-import numpy as np
-np.ones((10,))
+print("yah yeet")
     </textarea>
     <button id='run' onclick='evaluatePython()'>Run</button>
-    <p>You can execute any Python code. Just enter something in the box above and click the button. <strong>It can take some time</strong>.</p>
+<p><strong>Execution may take some time.</strong></p>
 </body>
 
 </html>
