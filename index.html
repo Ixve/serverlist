@@ -53,11 +53,9 @@ def show_result(data):
   output = js.document.getElementById("output")
   data1 = js.JSON.stringify(data)
   data2 = js.JSON.parse(data1)
+  i = 5
+  js.output.value = data2[i].name + " - " + "Players Online: " + data2[i].players_current
   
-  i = 0
-  while i != 45:
-    js.output.value = data2[i].name + " - " + "Players Online: " + data2[i].players_current
-    i = i + 1
 
 `
 languagePluginLoader
