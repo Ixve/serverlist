@@ -7,7 +7,18 @@
     <script src="https://pyodide-cdn2.iodide.io/v0.15.0/full/pyodide.js"></script>
 </head>
 
-<script>
+
+<body>
+    Output:
+    </div>
+    <textarea id='output' style='width: 100%;' rows='10' disabled></textarea>
+    <textarea id='code' rows='3'>
+print("yah yeet")
+    </textarea>
+    <button id='run' onclick='evaluatePython()'>Run</button>
+<p><strong>Execution may take some time.</strong></p>
+
+<script type="text/javascript">
         const output = document.getElementById("output")
         const code = document.getElementById("code")
 
@@ -25,17 +36,4 @@
                 .then(output => addToOutput(output))
                 .catch((err) => { addToOutput(err) })
         }
-</script>
-
-<body>
-    Output:
-    </div>
-    <textarea id='output' style='width: 100%;' rows='10' disabled></textarea>
-    <textarea id='code' rows='3'>
-print("yah yeet")
-    </textarea>
-    <button id='run' onclick='evaluatePython()'>Run</button>
-<p><strong>Execution may take some time.</strong></p>
-</body>
-
-</html>
+</script></body></html>
