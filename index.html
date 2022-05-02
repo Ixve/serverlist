@@ -54,13 +54,13 @@ def show_result(data):
   data1 = js.JSON.stringify(data)
   data2 = js.JSON.parse(data1)
   
-  js.output.value = data2[5].name
+  i = 0
+  while i != 45:
+    js.output.value = data2[i].name + " - " + "Players Online: " + data2[i].players_current
+    i = i + 1
 
 `
-
-// init environment
 languagePluginLoader
-// then run Python code
   .then(() => pyodide.runPythonAsync(python_code));
 </script>
 
