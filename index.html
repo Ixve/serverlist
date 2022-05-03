@@ -1,24 +1,16 @@
 <!DOCTYPE HTML>
 <html>
-
 <title> Server List </title>
-
 <link href="https://synth.surf/css/style.css" rel=stylesheet>
 <link href=https://synth.surf/css/bootstrap.min.css rel=stylesheet>
 <link href="style.css" rel="stylesheet">
 <script src="https://pyodide-cdn2.iodide.io/v0.17.0/full/pyodide.js"></script>
-
 <div class="container-fluid text-center containerscheme1">
     <section class="mb-1 section" id=aboutme>
         <h3 class=card-title>Welcome</h3>
         <div class="align-content-center container-fluid md-8" style=margin:auto>
             <p class=card-text-start>This is the alternative Build&Shoot server list<br>Please note this cannot be used with the ingame server browser.</div>
-              <button onclick='pyodide.globals.fetch()' id='download'>Download JSON</button>
-
-    </section>
-</div>
-
-<body>
-<script src="script.js"></script>
-</body>
-</html>
+              <button onclick='pyodide.globals.fetch()' id='download'>Run Code</button></section></div>
+<noscript>This website does not and cannot work properly with JS turned off.
+Please turn javascript back on.</noscript>
+<body><script src="script.js"></script></body></html>
