@@ -1,4 +1,6 @@
-
+document.getElementById("420").disabled = true;
+globalThis.languagePluginUrl;
+globalThis.languagePluginLoader = loadPyodide({indexURL : globalThis.languagePluginUrl});
 i = 0
 
  let response = fetch(
@@ -24,3 +26,28 @@ i = 0
     }
     return response;
   })
+
+console.log('Initializing Pyodide');
+languagePluginLoader.then(() => { document.getElementById("download").disabled = false; console.log("Ready!") });
+
+let python_code = `
+import js
+from js import Blob, document, window
+
+def fetch():
+  window.fetch('http://services.buildandshoot.com/serverlist.json').then(lambda resp: resp.json()).then(lambda jsoh: show_result(jsoh))
+
+def show_result(data):
+  data1 = js.JSON.stringify(data)
+  with open('testing.json', 'w') as f:
+    f.write(data1)
+    with open('/testing.json', 'rt') as x:
+        txt = x.read()
+        txt
+        blob = Blob.new([txt], {type : 'application/text'})
+        url = window.URL.createObjectURL(blob);
+        window.location.assign(url);
+`
+
+languagePluginLoader
+  .then(() => pyodide.runPythonAsync(python_code))
