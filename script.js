@@ -1,4 +1,4 @@
-document.getElementById("420").disabled = true;
+document.getElementById("download").disabled = true;
 globalThis.languagePluginUrl;
 globalThis.languagePluginLoader = loadPyodide({indexURL : globalThis.languagePluginUrl});
 i = 0
